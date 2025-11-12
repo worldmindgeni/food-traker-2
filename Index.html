@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Food Tracker — онлайн-дневник питания</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <h1 class="logo">Food Tracker</h1>
+      <nav class="main-nav" aria-label="Главное меню">
+        <button class="nav-btn" data-target="home">Главная</button>
+        <button class="nav-btn" data-target="tracker">Дневник</button>
+        <button class="nav-btn" data-target="stats">Статистика</button>
+        <button class="nav-btn" data-target="about">О проекте</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="home" class="page active" aria-labelledby="home-title">
+      <h2 id="home-title">Добро пожаловать в Food Tracker</h2>
+      <p>Простой онлайн-дневник питания: добавляй приёмы пищи, отслеживай калории и смотри статистику по дню.</p>
+      <div class="features">
+        <article>
+          <h3>Добавляй еду</h3>
+          <p>Форма для быстрой записи приёма пищи и калорий.</p>
+        </article>
+        <article>
+          <h3>Сумма калорий</h3>
+          <p>Автоматически считает общую калорийность за день.</p>
+        </article>
+        <article>
+          <h3>Храни в браузере</h3>
+          <p>Данные сохраняются в локальном хранилище (localStorage).</p>
+        </article>
+      </div>
+    </section>
+    <section id="tracker" class="page" aria-labelledby="tracker-title">
+      <h2 id="tracker-title">Дневник питания</h2>
+
+      <form id="meal-form" class="card">
+        <div class="form-row">
+          <label for="meal-name">Название приёма</label>
+          <input id="meal-name" name="name" type="text" placeholder="Яблоко, салат, омлет" required />
+        </div>
+        <div class="form-row">
+          <label for="meal-cal">Калории (ккал)</label>
+          <input id="meal-cal" name="calories" type="number" min="0" step="1" placeholder="100" required />
+        </div>
+        <div class="form-row">
+          <label for="meal-time">Время</label>
+          <input id="meal-time" name="time" type="time" />
+        </div>
+        <div class="form-actions">
+          <button type="submit" id="add-meal-btn">Добавить приём</button>
+          <button type="button" id="clear-btn">Очистить день</button>
+        </div>
+      </form>
+
+      <div class="card stats-card">
+        <h3>Сегодня</h3>
+        <div class="summary">
+          <div>Всего приёмов: <span id="meals-count">0</span></div>
+          <div>Общие калории: <strong id="total-cal">0</strong> ккал</div>
+        </div>
+        <div class="progress-wrapper" aria-hidden="false">
+          <label for="goal-range">Цель по калориям: <span id="goal-label">2000</span> ккал</label>
+          <input id="goal-range" type="range" min="800" max="4000" step="50" value="2000" />
+          <div class="progress-bar" aria-hidden="true">
+            <div id="progress-fill"></div>
+          </div>
+        </div>
+      </div>
+
+      <ul id="meals-list" class="meals-list" aria-live="polite"></ul>
+
+    </section>
+    <section id="stats" class="page" aria-labelledby="stats-title">
+      <h2 id="stats-title">Статистика</h2>
+      <p>Минимальный набор статистики на сегодня (можно расширить):</p>
+      <ul>
+        <li>Средние калории за приём: <span id="avg-cal">0</span> ккал</li>
+        <li>Максимальная запись: <span id="max-cal">—</span></li>
+      </ul>
+
+      <div class="card small">
+        <h3>Последние записи</h3>
+        <ol id="recent-list"></ol>
+      </div>
+    </section>
+    <section id="about" class="page" aria-labelledby="about-title">
+      <h2 id="about-title">О проекте / Отчёт</h2>
+      <h4>Цель работы</h4>
+      <p>Разработать онлайн-дневник питания с использованием HTML, CSS, JavaScript. Реализовать добавление записей, подсчёт калорий и сохранение данных.</p>
+
+      <h4>Краткое описание функционала</h4>
+      <ul>
+        <li>Добавление приёма пищи (название, калории, время).</li>
+        <li>Подсчёт общей калорийности и числа приёмов.</li>
+        <li>Настраиваемая цель по калориям (range) и визуальная шкала прогресса.</li>
+        <li>Сохранение/загрузка данных в localStorage.</li>
+      </ul>
+
+      <h4>Файлы проекта</h4>
+      <ul>
+        <li><code>index1.html</code> — структура и разметка.</li>
+        <li><code>style1.css</code> — оформление (Flexbox/Grid, адаптивность).</li>
+        <li><code>script1.js</code> — логика, события, работа с DOM и localStorage.</li>
+      </ul>
+
+      <h4>Заключение</h4>
+      <p>Проект соответствует требованиям: семантическая разметка, адаптивный дизайн, минимум 3 динамических элемента, отчёт с перечислением файлов и функционала.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© Food Tracker — учебный проект</p>
+      <p>Контакты: <a href="mailto:student@gmail.com">student@example.com</a></p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
